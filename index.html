@@ -1,96 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #D3DAD9;
-      color: #715A5A;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px;
-      background: #715A5A;
-      color: #D3DAD9;
-    }
-
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      border: 4px solid #fff;
-    }
-
-    section {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    ul li {
-      background: #ecf0f1;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 6px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anurag Kacholiya</title>
+  <!-- Link to Devicons library for skill icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
 </head>
 <body>
-  <!-- Header with profile -->
-  <header>
-    <img src="profile.jpeg" alt="Profile Picture">
-    <h1>Anurag Kacholiya</h1>
-    <p>M.Tech CSIS | Student | IIIT Hyderabad</p>
+  <!-- Custom Cursor Glow Div -->
+  <div id="cursor-glow"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Anurag<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="hero">
+    <div class="hero-content">
+      <img src="profile.jpeg" alt="Profile Picture" class="profile-pic" />
+      <h1>
+        &gt; Anurag Kacholiya<span class="blinking-cursor"></span>
+      </h1>
+      <p class="subtitle">
+        <span class="keyword">const</span> <span class="function">role</span> = <span class="string">"M.tech CSIS | IIIT Hyd."</span>;
+      </p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
   </header>
 
-  <!-- About Me Section -->
-  <section>
+  <!-- About Section -->
+  <section id="about" class="section">
     <h2>About Me</h2>
     <p>
-      I am Anurag Kacholiya, a Computer Science enthusiast currently pursuing my M.Tech in CSIS at IIIT Hyderabad. I have a strong foundation in problem-solving, data structures, algorithms, and system-level programming, and I am always eager to explore advanced areas like Artificial Intelligence, Machine Learning and Cyber-Security. My academic journey includes securing AIR 504 in GATE CSE 2025 and successfully completing certifications in AWS Cloud Foundations and Architecture. Alongside my studies, I enjoy working on practical projects—like building my own VS Code extension, CodeFix-AI. I am deeply passionate about technology, innovation, and continuous learning, and I aspire to contribute meaningfully to cutting-edge research and real-world applications.
+      I am <strong>Anurag Kacholiya</strong>, a Computer Science enthusiast pursuing my M.Tech in CSIS at IIIT Hyderabad. 
+      My journey in technology revolves around building impactful software systems and exploring cutting-edge areas like 
+      <strong>AI, ML, and Cyber-Security</strong>. I secured AIR 504 in GATE CSE 2025 and earned certifications in 
+      AWS Cloud Foundations and Architecture. I love creating practical tools — like my VS Code extension <strong>CodeFix-AI</strong> — 
+      and enjoy turning complex problems into elegant solutions.
     </p>
   </section>
 
   <!-- Education Section -->
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>10th Grade:</strong> Ryan International School, 2019, 90.6%</li>
-      <li><strong>12th Grade:</strong> Juniors' College, 2021, 81.4%</li>
-      <li><strong>Graduation:</strong> B.Tech CSE, Medicaps University, 2025, 8.46 CGPA</li>
-      <li><strong>Masters:</strong> M.Tech CSIS, IIIT Hyderabad, 2027</li>
+  <section id="education" class="section">
+    <h2>Education Log</h2>
+    <ul class="timeline">
+      <li><span>2019</span> – 10th Grade, Ryan International School – 90.6%</li>
+      <li><span>2021</span> – 12th Grade, Juniors’ College – 81.4%</li>
+      <li><span>2025</span> – B.Tech CSE, Medicaps University – 8.46 CGPA</li>
+      <li><span>2027</span> – M.Tech CSIS, IIIT Hyderabad</li>
     </ul>
   </section>
 
   <!-- Skills Section -->
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>C++</li>
-      <li>JAVA</li>
-      <li>PYTHON</li>
-      <li>CLOUD COMPUTING</li>
-    </ul>
+  <section id="skills" class="section">
+    <h2>Tech Stack</h2>
+    <div class="skills-grid">
+      <div class="skill"><i class="devicon-cplusplus-plain"></i> C++</div>
+      <div class="skill"><i class="devicon-java-plain"></i> Java</div>
+      <div class="skill"><i class="devicon-python-plain"></i> Python</div>
+      <div class="skill"><i class="devicon-amazonwebservices-original"></i> Cloud Computing</div>
+      <div class="skill"><i class="devicon-linux-plain"></i> System Programming</div>
+      <div class="skill"><i class="devicon-git-plain"></i> Git & GitHub</div>
+    </div>
   </section>
 
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-container">
+
+      <!-- Project 1: CodeFix-AI -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>CodeFix-AI</h3>
+          </div>
+          <div class="flip-card-back">
+            <h4>CodeFix-AI</h4>
+            <p>
+              A VS Code extension that uses AI to identify and auto-correct code issues intelligently. Built with Node.js and OpenAI APIs.
+            </p>
+            <a href="https://github.com/Anurag-Kacholiya/CodeFix-AI" target="_blank" class="project-link">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Distributed File Sharing System -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Distributed File Sharing System</h3>
+          </div>
+          <div class="flip-card-back">
+            <h4>Distributed File Sharing System</h4>
+            <p>
+              A robust peer-to-peer system using low-level system calls and multi-threaded synchronization for resilience and efficiency.
+            </p>
+            <a href="https://github.com/Anurag-Kacholiya/Distributed-File-Sharing-System-PEER-to-PEER-" target="_blank" class="project-link">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: POSIX Shell Implementation -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>POSIX Shell Implementation</h3>
+          </div>
+          <div class="flip-card-back">
+            <h4>POSIX Shell Implementation</h4>
+            <p>
+              Developed a minimal yet functional shell for Unix-like systems using C, implementing core POSIX features such as process forking, piping, redirection, background execution, and built-in command handling with proper signal management.
+            </p>
+            <a href="https://github.com/Anurag-Kacholiya/POSIX-Shell-Implementation" target="_blank" class="project-link">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>// Coded with caffeine and curiosity © 2025</p>
+  </footer>
 </body>
 </html>
+
