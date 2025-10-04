@@ -1,0 +1,449 @@
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  /* "Retro Terminal" Color Palette */
+  --bg-dark: #000000;      /* Pure black background */
+  --bg-medium: #111111;  /* Very dark grey for cards/panels */
+  --border: #2b2b2b;      /* Subtle borders */
+  --text-light: #e0e0e0; /* Primary text (off-white) */
+  --text-muted: #808080; /* Dimmer grey for secondary text */
+  
+  /* Syntax Highlighting / Accent Colors */
+  --accent-green: #33ff99;  /* Classic terminal green for cursor, strings, links */
+  --accent-cyan: #00e5ff;   /* Bright cyan for functions and headers */
+  --accent-amber: #ffb800;  /* Amber/Orange for keywords */
+  --accent-magenta: #f075ff;/* Magenta for other highlights */
+  --accent-blue-glow: rgba(0, 150, 255, 0.5); /* Dim blue for cursor glow */
+
+  --nav-height: 70px;
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  scroll-behavior: smooth;
+  padding-top: var(--nav-height);
+  cursor: none; /* Hide the default cursor */
+}
+
+a, .btn, .flip-card {
+  cursor: none; /* Ensure interactive elements also hide default cursor */
+}
+
+/* --- Custom Cursor Glow --- */
+#cursor-glow {
+  position: fixed;
+  /* Make the inner circle very small and visible */
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-cyan);
+  border-radius: 50%;
+  /* Make the glow a bit more intense */
+  box-shadow: 0 0 45px 25px var(--accent-blue-glow);
+  pointer-events: none; /* Allows clicks to pass through the div */
+  left: 0; 
+  top: 0;
+  transform: translate(-100%, -100%); /* Hides it initially */
+  z-index: 9999;
+  /* Add transitions for a smoother hover effect */
+  transition: box-shadow 0.2s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+#cursor-glow.hover {
+  /* Make the inner dot slightly larger and brighter on hover */
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  /* Increase the glow even more on hover */
+  box-shadow: 0 0 55px 35px rgba(0, 229, 255, 0.7);
+}
+/* --- End Custom Cursor --- */
+
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.logo span {
+  color: var(--accent-green);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-green);
+}
+
+/* Hero Section */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  background: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-family: 'Fira Code', monospace;
+  font-size: 2.5rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content .subtitle {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.15rem;
+  margin: 10px 0 25px;
+}
+.subtitle .keyword { color: var(--accent-amber); }
+.subtitle .function { color: var(--accent-cyan); }
+.subtitle .string { color: var(--accent-green); }
+
+
+.profile-pic {
+  width: 375px;
+  height: 375px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-green);
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(51, 255, 153, 0.25);
+}
+
+.blinking-cursor {
+  display: inline-block;
+  background-color: var(--accent-green);
+  width: 10px;
+  height: 2.4rem;
+  animation: blink 1s step-end infinite;
+  margin-left: 10px;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  from, to { background-color: transparent; }
+  50% { background-color: var(--accent-green); }
+}
+
+.btn {
+  background: transparent;
+  color: var(--accent-green);
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid var(--accent-green);
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--accent-green);
+  color: var(--bg-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(51, 255, 153, 0.3);
+}
+
+/* Section Styling */
+.section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(.2,.9,.2,1);
+}
+
+.fade-in { opacity: 1; transform: translateY(0); }
+.no-js .section { opacity: 1; transform: none; }
+
+.section h2 {
+  font-family: 'Fira Code', monospace;
+  font-size: 2rem;
+  color: var(--accent-cyan);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.section h2::before {
+  content: '//';
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  margin-right: 15px;
+}
+
+/* Education Timeline */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--bg-medium);
+}
+.timeline li {
+  position: relative;
+  margin-bottom: 20px;
+  background: var(--bg-medium);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-amber);
+}
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--accent-amber);
+  border-radius: 50%;
+  border: 2px solid var(--bg-dark);
+}
+.timeline span {
+  color: var(--accent-green);
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.skill {
+  background: var(--bg-medium);
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-weight: 500;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.skill:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  transform: translateY(-5px);
+}
+
+.skill i {
+  font-size: 1.8rem;
+}
+
+/* --- Projects --- */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 250px;
+  perspective: 1000px; 
+  font-family: 'Fira Code', monospace;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: var(--bg-medium);
+}
+
+.flip-card-front {
+  border-color: var(--accent-magenta);
+}
+
+.flip-card-front h3 {
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  justify-content: space-between; /* Keeps title at top, button at bottom */
+  border-color: var(--accent-green);
+}
+
+.flip-card-back h4 {
+  color: var(--accent-cyan);
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+/* --- THIS IS THE UPDATED SECTION --- */
+.flip-card-back p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-family: "Poppins", sans-serif;
+  flex-grow: 1; /* Allows the paragraph to fill available space */
+  text-align: left; /* Better for reading paragraphs */
+  
+  /* ADD THESE LINES */
+  overflow-y: auto; /* Creates a scrollbar ONLY when content overflows */
+  padding-right: 10px; /* Prevents text from hiding under the scrollbar */
+}
+/* --- END OF UPDATE --- */
+
+
+/* --- (Optional but Recommended) Style the scrollbar --- */
+.flip-card-back p::-webkit-scrollbar {
+  width: 8px;
+}
+
+.flip-card-back p::-webkit-scrollbar-track {
+  background: var(--bg-medium);
+  border-radius: 4px;
+}
+
+.flip-card-back p::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+.flip-card-back p::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-green);
+}
+/* --- End of scrollbar styling --- */
+
+
+.project-link {
+  display: inline-block;
+  color: var(--accent-green);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  border: 1px solid var(--accent-green);
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+  margin-top: 10px; /* Add space above the button */
+}
+
+.project-link:hover {
+  background-color: var(--accent-green);
+  color: var(--bg-dark);
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 40px;
+  font-family: 'Fira Code', monospace;
+}
+
+/* Responsive Design */
+@media (max-width: 720px) {
+  .navbar { padding: 10px 20px; }
+  .nav-links { gap: 12px; font-size: 0.95rem; }
+  
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-content h1 { font-size: 1.8rem; }
+  .blinking-cursor { height: 1.8rem; }
+  :root { --nav-height: 64px; }
+  .section h2 { font-size: 1.6rem; }
+  .section h2::before { font-size: 1.4rem; }
+}
+
